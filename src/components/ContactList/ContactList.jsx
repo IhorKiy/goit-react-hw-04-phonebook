@@ -6,8 +6,9 @@ export class ContactList extends Component {
 
   
   
-  handleSubmit = id => {
-    this.props.onSubmit(id);
+  handleSubmit = name => {
+    
+    this.props.onSubmit( name );
   };
   render() {
       const filteredContacts = this.props.contacts.filter(contact =>
@@ -21,8 +22,10 @@ export class ContactList extends Component {
             {filteredContacts.map(contact => (
               <ContactItem
                 key={contact.id}
-                contact={contact}
-                on0nSubmit={this.handleSubmit}
+                name={contact.name}
+                number={contact.number}
+
+                onSubmit={this.handleSubmit}
               />
             ))}
           </ul>

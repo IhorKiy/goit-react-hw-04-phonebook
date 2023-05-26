@@ -7,12 +7,13 @@ const initialValue = {
   filter:''
 }
 
-export function Filter (onChange){
+export function Filter({ onChangeF }){
   const [filter, setFilter] = useState('')
   
   const handleChange = (evt) => {
-    setFilter(evt.currentTarget.value );
-    onChange(evt.currentTarget.value);
+ 
+    setFilter(evt.currentTarget.value);
+    onChangeF(evt.currentTarget.value);
   };
 
 
@@ -21,7 +22,7 @@ export function Filter (onChange){
       <div>
         <h3>Find contacts by name</h3>
 
-        <Formik initialValues={initialValue} >
+                <Formik initialValues={initialValue} >
           <Form>
           <label htmlFor="find">Find
             <Field

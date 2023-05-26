@@ -1,7 +1,10 @@
+
+
 import React, { useState, useEffect } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
+
 
 export function App() {
   const [contacts, setContacts] = useState([]);
@@ -20,7 +23,7 @@ export function App() {
   }, [contacts]);
 
   const handleFilter = (text) => {
-    setFilter( text );
+      setFilter( text );
   };
 
   const handleAddContact = (newContact) => {
@@ -28,9 +31,9 @@ export function App() {
   };
 
  
-    const deleteContact = contactId => {
-  setContacts(prevContacts => 
-    prevContacts.filter(contact => contact.id !== contactId),
+  const deleteContact = (contactName) => {
+        setContacts((prevContacts) => 
+    prevContacts.filter(contact => contact.name !== contactName),
   );
 };
  
@@ -41,7 +44,7 @@ export function App() {
       <ContactForm contacts={contacts} onSubmit={handleAddContact} />
 
       <h2>Contacts</h2>
-      <Filter contacts={contacts} onChange={handleFilter} />
+      <Filter onChangeF={handleFilter} />
       <ContactList
         contacts={contacts}
         filter={filter}
